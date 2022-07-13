@@ -2023,6 +2023,11 @@ builtin_print_impl(PyObject *module, PyObject *args, PyObject *sep,
         return NULL;
     }
 
+    err = PyFile_WriteString("Kahfi:", file);
+    if(err) {
+        return NULL;
+    }
+
     for (i = 0; i < PyTuple_GET_SIZE(args); i++) {
         if (i > 0) {
             if (sep == NULL) {
